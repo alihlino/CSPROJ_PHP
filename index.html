@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>System Login</title>
+	<link rel="stylesheet" href="css/style1.css" />
+	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="jquery-1.7.min.js"></script>
+	<script language="javascript">
+	function check(form){
+		if(form.username.value == "root" && form.password.value == "password"){
+			window.open('home.php');
+			}else
+			{
+				alert("Error Password or Username")
+				}
+		}
+</script>
+</head>
+<body>
+	<?php
+		// Create connection
+		$con=mysqli_connect("localhost","root","feelfins123","mansystem");
+
+		// Check connection
+		if (mysqli_connect_errno($con)){
+  			echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  		}
+	?>
+	<div class="lg-container">
+		<center>
+		<iframe src="http://free.timeanddate.com/clock/i3w2ix4r/n145/szw210/szh210/hoc000/hbw2/cf100/hncf90/fas20/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hhs2/hhl55/hms2/hml80" frameborder="0" width="212" height="212"></iframe>
+
+		<iframe src="http://free.timeanddate.com/clock/i3w2ix4r/n145/fn7/fs18/tct/pct/ftb/tt0/tw0/tm1/tb4" frameborder="0" width="128" height="52" allowTransparency="true"></iframe>
+		</center>
+
+	<hr>
+		<h1><img src="images/login.png"></img><br>Log in</h1>
+		<form id="lg-form" name="lg-form" method="post">
+			
+			<div>
+				<label for="username">Username:</label>
+				<input type="text" name="username" id="username" placeholder="username" />
+			</div>
+			
+			<div>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password" placeholder="password" />
+			</div>
+			
+			<div>				
+				<button type="submit" onclick="check(this.form)" id="login">Login</button>
+			</div>
+			
+		</form>
+		<div id="message"></div>
+		<hr>
+	</div>
+</body>
+</html>
